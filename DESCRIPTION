@@ -1,0 +1,23 @@
+Package: anwObstacles
+Title: R Package for American Ninja Warrior Obstacle Data
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Josh",
+           family = "Reiss",
+           role = c("aut", "cre"),
+           email = "reissj@reed.edu")
+    person(given = "Riley",
+           family = "Leonard",
+           role = c("aut", "cre"),
+           email = "leonardr@reed.edu")
+    person(given = "Evan",
+           family = "Pugh",
+           role = c("aut", "cre"),
+           email = "pughe@reed.edu")
+Description: This package gathers data for every obstacle used in American Ninja Warrior from seasons 1 through 10. The information included for each obstacle covers obstacle name, location, course placement, and placement in the overall season for the given obstacle observation.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Reed-Statistics/anwObstacles
+BugReports: https://github.com/Reed-Statistics/anwObstacles/issues
+RoxygenNote: 7.0.2

@@ -1,0 +1,48 @@
+---
+title: "Untitled"
+author: "Evan Pugh"
+date: "2/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+library(ggplot2)
+library(plyr)
+library(tidyr)
+library(dplyr)
+library(readxl)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(math241S20PkgGrp9)
+dataANW <- anwObstacles
+loc = plyr::count(dataANW$`Location`)
+colnames(loc) <- c("Location","Total_Freq")
+sort(loc$freq, decreasing = TRUE)
+final = ddply(dataANW, .(dataANW$Location, dataANW$`Round/Stage`), nrow)
+colnames(final) <- c("Location","Round/Stage","Freq")
+final <- left_join(final, loc)
+final[is.na(final)] <- 0
+final$frequency = loc$freq
+View(loc)
+
+g <- ggplot(final, aes(x = reorder(Location,-Total_Freq),y = Freq, fill = `Round/Stage`))
+g + geom_col(position="stack")+ theme(axis.text.x = element_text(angle = 90)) + labs(x = "Location", y = "Frequency of Occurence")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

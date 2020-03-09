@@ -1,0 +1,5 @@
+library("readxl")
+getwd()
+anwObstacles <- read_excel("./data-raw/American Ninja Warrior Obstacle History.xlsx")
+anwObstacles <- anwObstacles %>% rename("ObstacleName" = "Obstacle Name", "ObstacleOrder" = "Obstacle Order")
+usethis::use_data(anwObstacles, overwrite = TRUE)

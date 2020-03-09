@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+data-raw
+resources
+samples
+LICENSE.md
